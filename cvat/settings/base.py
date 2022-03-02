@@ -240,7 +240,7 @@ IAM_DEFAULT_ROLES = ['user']
 IAM_ADMIN_ROLE = 'admin'
 # Index in the list below corresponds to the priority (0 has highest priority)
 IAM_ROLES = [IAM_ADMIN_ROLE, 'business', 'user', 'worker']
-IAM_OPA_DATA_URL = 'http://opa:8181/v1/data'
+IAM_OPA_DATA_URL = 'http://cvat_opa:8181/v1/data'
 LOGIN_URL = 'rest_login'
 LOGIN_REDIRECT_URL = '/'
 
@@ -266,13 +266,13 @@ OLD_PASSWORD_FIELD_ENABLED = True
 
 RQ_QUEUES = {
     'default': {
-        'HOST': 'localhost',
+        'HOST': 'cvat_redis',
         'PORT': 6379,
         'DB': 0,
         'DEFAULT_TIMEOUT': '4h'
     },
     'low': {
-        'HOST': 'localhost',
+        'HOST': 'cvat_redis',
         'PORT': 6379,
         'DB': 0,
         'DEFAULT_TIMEOUT': '24h'
