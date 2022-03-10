@@ -22,8 +22,12 @@ SENDFILE_BACKEND = 'django_sendfile.backends.development'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'cvat_dev',
+        'USER': 'cvat_dev',
+        'PASSWORD': 'megazone00!',
+        'HOST' : '106.246.237.171',
+        'PORT' : '32442'
     }
 }
 
@@ -42,4 +46,4 @@ ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = '{}/auth/email-confirmation'
 
 CORS_ORIGIN_WHITELIST = [UI_URL]
 CORS_REPLACE_HTTPS_REFERER = True
-IAM_OPA_DATA_URL = 'http://cvat_opa:8181/v1/data'
+IAM_OPA_DATA_URL = 'http://106.246.237.171:32001/v1/data'

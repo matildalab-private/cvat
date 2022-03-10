@@ -29,6 +29,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = str(Path(__file__).parents[2])
+K8S_SERVER = '106.246.237.171'
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 INTERNAL_IPS = ['127.0.0.1']
@@ -240,7 +241,7 @@ IAM_DEFAULT_ROLES = ['user']
 IAM_ADMIN_ROLE = 'admin'
 # Index in the list below corresponds to the priority (0 has highest priority)
 IAM_ROLES = [IAM_ADMIN_ROLE, 'business', 'user', 'worker']
-IAM_OPA_DATA_URL = 'http://cvat_opa:8181/v1/data'
+IAM_OPA_DATA_URL = 'http://106.246.237.171:32001/v1/data'
 LOGIN_URL = 'rest_login'
 LOGIN_REDIRECT_URL = '/'
 
@@ -266,14 +267,14 @@ OLD_PASSWORD_FIELD_ENABLED = True
 
 RQ_QUEUES = {
     'default': {
-        'HOST': 'cvat_redis',
-        'PORT': 6379,
+        'HOST': K8S_SERVER,
+        'PORT': 31590,
         'DB': 0,
         'DEFAULT_TIMEOUT': '4h'
     },
     'low': {
-        'HOST': 'cvat_redis',
-        'PORT': 6379,
+        'HOST': K8S_SERVER,
+        'PORT': 31590,
         'DB': 0,
         'DEFAULT_TIMEOUT': '24h'
     }
@@ -281,7 +282,7 @@ RQ_QUEUES = {
 
 NUCLIO = {
     'SCHEME': os.getenv('CVAT_NUCLIO_SCHEME', 'http'),
-    'HOST': os.getenv('CVAT_NUCLIO_HOST', 'localhost'),
+    'HOST': os.getenv('CVAT_NUCLIO_HOST', 'nuclio'),
     'PORT': os.getenv('CVAT_NUCLIO_PORT', 8070),
     'DEFAULT_TIMEOUT': os.getenv('CVAT_NUCLIO_DEFAULT_TIMEOUT', 120)
 }
