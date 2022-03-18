@@ -267,14 +267,14 @@ OLD_PASSWORD_FIELD_ENABLED = True
 
 RQ_QUEUES = {
     'default': {
-        'HOST': K8S_SERVER,
-        'PORT': 31590,
+        'HOST': 'localhost',
+        'PORT': 6379,
         'DB': 0,
         'DEFAULT_TIMEOUT': '4h'
     },
     'low': {
-        'HOST': K8S_SERVER,
-        'PORT': 31590,
+        'HOST': 'localhost',
+        'PORT': 6379,
         'DB': 0,
         'DEFAULT_TIMEOUT': '24h'
     }
