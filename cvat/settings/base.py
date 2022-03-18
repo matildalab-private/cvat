@@ -282,8 +282,8 @@ RQ_QUEUES = {
 
 NUCLIO = {
     'SCHEME': os.getenv('CVAT_NUCLIO_SCHEME', 'http'),
-    'HOST': os.getenv('CVAT_NUCLIO_HOST', 'nuclio'),
-    'PORT': os.getenv('CVAT_NUCLIO_PORT', 8070),
+    'HOST': os.getenv('CVAT_NUCLIO_HOST', '106.246.237.171'),
+    'PORT': os.getenv('CVAT_NUCLIO_PORT', 32002),
     'DEFAULT_TIMEOUT': os.getenv('CVAT_NUCLIO_DEFAULT_TIMEOUT', 120)
 }
 
